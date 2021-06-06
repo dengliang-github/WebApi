@@ -26,6 +26,7 @@ namespace DotNetCoreWebApi.Controllers.User
                 item["Account"] = "A0001";
                 item["DisplayName"] = "lisi";
                 item["Sex"] = "Male";
+                item["Plant"]="SH";
                 rv["data"] = children;
             }
             catch (Exception ex)
