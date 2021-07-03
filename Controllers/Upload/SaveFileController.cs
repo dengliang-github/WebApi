@@ -38,16 +38,16 @@ namespace DotNetCoreWebApi.Controllers.Upload
                     rv["success"] = true;
                     JObject item = new JObject();
                     children.Add(item);
-                    string path = _environment.WebRootPath + "\\Upload\\";
+                    string path = _environment.WebRootPath + "Upload";
                     if (!Directory.Exists(path))
                     {
                         Directory.CreateDirectory(path);
                     }
-                    using (FileStream filesStream= System.IO.File.Create(path + objFile.files.FileName))
+                    using (FileStream filesStream= System.IO.File.Create(path+"/"+objFile.files.FileName))
                     {
                         objFile.files.CopyTo(filesStream);
                         filesStream.Flush();
-                        item["FilePath"] = "\\Upload\\" + objFile.files.FileName;
+                        item["FilePath"] =  objFile.files.FileName;
                         rv["data"] = children;
                     }
                 }
