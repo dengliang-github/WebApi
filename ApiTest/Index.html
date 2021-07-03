@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>api测试页面</title>
+    <script src="jquery-3.6.0.min.js"></script>
+    <script>
+        $(function(){
+            // $.ajax({
+            //     url:'https://loaclhost:50001/api/SaveFile/Save',
+            //     type:'post',
+            //     data:'',
+            //     success:function(data){
+            //         console.log(data);
+            //     }
+            // });
+        });
+    </script>
+</head>
+<body>
+    <form action="https://localhost:5001/api/SaveFile/Save" method="POST" enctype="multipart/form-data">
+        <input type="file" name="files"/>
+        <input type="submit" value="提交数据"/>
+    </form>
+</body>
+</html>
