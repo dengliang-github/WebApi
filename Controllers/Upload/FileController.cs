@@ -12,11 +12,11 @@ namespace DotNetCoreWebApi.Controllers.Upload
 {
     [ApiController]
     [Route("api/[controller]/[action]")]
-    public class SaveFileController : ControllerBase
+    public class FileController : ControllerBase
     {
         //初始化 
         public static IWebHostEnvironment _environment;
-        public SaveFileController(IWebHostEnvironment environment)
+        public FileController(IWebHostEnvironment environment)
         {
             _environment = environment;
         }
@@ -27,7 +27,7 @@ namespace DotNetCoreWebApi.Controllers.Upload
         }
 
         [HttpPost]
-        public IActionResult Save([FromForm]FileUploadAPI objFile)
+        public IActionResult Save([FromForm] FileUploadAPI objFile)
         {
             JObject rv = new JObject();
             JArray children = new JArray();
@@ -43,11 +43,16 @@ namespace DotNetCoreWebApi.Controllers.Upload
                     {
                         Directory.CreateDirectory(path);
                     }
-                    using (FileStream filesStream= System.IO.File.Create(path+"/"+objFile.files.FileName))
+                    string FileName = objFile.files.FileName;
+                    string Ext = FileName.Substring(FileName.LastIndexOf('.'), FileName.Length - FileName.LastIndexOf('.'));
+                    using (FileStream filesStream = System.IO.File.Create(path + "/" + objFile.files.FileName))
                     {
                         objFile.files.CopyTo(filesStream);
                         filesStream.Flush();
-                        item["FilePath"] =  objFile.files.FileName;
+                        item["FilePath"] = path + "/" + objFile.files.FileName;
+                        item["FileName"] = FileName;
+                        item["Ext"] = Ext;
+                        item["Size"] = objFile.files.Length;
                         rv["data"] = children;
                     }
                 }
@@ -64,5 +69,11 @@ namespace DotNetCoreWebApi.Controllers.Upload
             }
             return Ok(rv.ToString());
         }
+
+        public IActionResult Download([FromForm] string FileID)
+        {
+            return null;
+        }
+        
     }
 }
