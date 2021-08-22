@@ -37,6 +37,7 @@ namespace DotNetCoreWebApi.Controllers.User
             return Ok(rv.ToString());
         }
 
+        [HttpGet]
         public IActionResult GetConfig()
         {
             JObject rv = new JObject();
