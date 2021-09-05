@@ -2,6 +2,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace DotNetCoreWebApi
 {
+    /// <summary>
+    /// 实体模型类
+    /// </summary>
     public class SYS_USER
     {
         [Key]

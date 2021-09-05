@@ -1,0 +1,35 @@
+﻿<Properties StartupConfiguration="{A7D4CF7C-BF5F-49DF-8D06-3515A8788D90}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Controllers/Upload/FileController.cs">
+    <Files>
+      <File FileName="Controllers/Upload/FileController.cs" Line="127" Column="25" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="DotNetCoreWebApi" expanded="True">
+            <Node name="DotNetCoreWebApi" expanded="True">
+              <Node name="Controllers" expanded="True">
+                <Node name="Upload" expanded="True">
+                  <Node name="FileController.cs" selected="True" />
+                </Node>
+                <Node name="User" expanded="True" />
+              </Node>
+              <Node name="Model" expanded="True" />
+              <Node name="appsettings.json" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/deng/Desktop/DotNet/DotNetCoreWebApi/Controllers/User/UserController.cs" relfile="Controllers/User/UserController.cs" line="174" column="1" />
+      <Breakpoint file="/Users/deng/Desktop/DotNet/DotNetCoreWebApi/Controllers/User/UserController.cs" relfile="Controllers/User/UserController.cs" line="40" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.DotNetCoreWebApi PreferredExecutionTarget="/Applications/Microsoft Edge.app" />
+</Properties>

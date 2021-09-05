@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,22 +8,40 @@
     <title>api测试页面</title>
     <script src="jquery-3.6.0.min.js"></script>
     <script>
-        $(function(){
-            // $.ajax({
-            //     url:'https://loaclhost:50001/api/SaveFile/Save',
-            //     type:'post',
-            //     data:'',
-            //     success:function(data){
-            //         console.log(data);
-            //     }
-            // });
+        $(function () {
+            $.ajax({
+                url: 'http://81.68.138.171:8000/connect/token',
+                type: 'post',
+                data: { 'grant_type': 'password', 'client_id': 'client', 'client_secret': 'secret','username': 'Admin', 'password': '123456' },
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'  //multipart/form-data;boundary=--xxxxxxx   application/json
+                },
+                async: false,
+                success: function (data) {
+                    console.log(data);
+                    $.ajax({
+                        url: 'http://localhost:5000/api/GetData/UserInfo',
+                        type: 'post',
+                        contentType: 'application/json',
+                        data:{},
+                        beforeSend: function (XMLHttpRequest) {
+                            XMLHttpRequest.setRequestHeader("Authorization", "Bearer "+data.access_token);
+                        },
+                        success: function (data) {
+                            console.log(data);
+                        }
+                    });
+                }
+            });
         });
     </script>
 </head>
+
 <body>
     <form action="https://localhost:5001/api/SaveFile/Save" method="POST" enctype="multipart/form-data">
-        <input type="file" name="files"/>
-        <input type="submit" value="提交数据"/>
+        <input type="file" name="files" />
+        <input type="submit" value="提交数据" />
     </form>
 </body>
+
 </html>
